@@ -1,0 +1,6 @@
+uvicorn
+fastapi
+fastapi-versioning
+aiosmtpd
+aiosmtplib
+filelock

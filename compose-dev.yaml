@@ -1,0 +1,20 @@
+services:
+  botassistanceapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: botassistanceapi
+    environment:
+      - SMTPSERVER_HOSTNAME=0.0.0.0
+      - SMTPSERVER_PORT=3000
+      - MAILCHANNEL_FROM=from@landbot.io
+      - MAILCHANNEL_TO=to@landbot.io
+    expose:
+      - 8000
+    ports:
+      - "127.0.0.1:8000:8000"
+    init: true
+    volumes:
+    - type: bind
+      source: /var/run/docker.sock
+      target: /var/run/docker.sock

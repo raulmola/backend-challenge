@@ -1,0 +1,15 @@
+FROM python:3.9 AS botassistanceapi
+
+COPY app/requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+RUN useradd -s /bin/bash -m vscode
+RUN groupadd docker && usermod -aG docker vscode
+
+USER vscode
+
+ENTRYPOINT ["sleep", "infinity"]
+
+
+
+
